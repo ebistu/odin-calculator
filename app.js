@@ -45,22 +45,20 @@ function parseDisplayValue(){
             case "*":
             case "/":
                 operator = displayValue.charAt(i);
-                console.log(displayValue.)
-                
+                firstNumber = Number(displayValue.slice(0, displayValue.charAt(i)));
                 break;
         }
     }
 }
 
 function updateDisplay(txt){
-    const display = document.querySelector(".display");
     if(txt === ""){
-        display.textContent = "";
+        displayValue = "";
+    } else if(displayValue.length < 24){
+        displayValue += txt;
     }
-    if(display.textContent.length < 24){
-        display.textContent += txt;
-    }
-    displayValue = display.textContent;
+    const display = document.querySelector(".display");
+    display.textContent = displayValue;
 }
 
 function operate(operator, firstNum, secondNum){
