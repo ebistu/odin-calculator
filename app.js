@@ -21,11 +21,8 @@ operBtns.forEach(button => {
                 break;
             case "=":
                 parseDisplayValue();
-                console.log(displayValue);
-                console.log(firstNumber);
-                console.log(operator);
-                //updateDisplay("");
-                //updateDisplay(operate(operator, firstNumber, secondNumber));
+                updateDisplay("");
+                updateDisplay(operate(operator, firstNumber, secondNumber));
                 break;
             case "c":
                 updateDisplay("");
@@ -40,13 +37,13 @@ operBtns.forEach(button => {
 function parseDisplayValue(){
     for(i=0;i<displayValue.length;i++){
         switch(displayValue.charAt(i)){
-            case "+":
-            case "-":
-            case "*":
-            case "/":
+            case '+':
+            case '-':
+            case '*':
+            case '/':
                 operator = displayValue.charAt(i);
-                firstNumber = Number(displayValue.slice(0, displayValue.charAt(i)));
-                break;
+                firstNumber = Number(displayValue.slice(0, i));
+                secondNumber = Number(displayValue.slice(i+1));
         }
     }
 }
