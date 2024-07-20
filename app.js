@@ -17,11 +17,11 @@ operBtns.forEach(button => {
     button.addEventListener('click', function(event) {
         switch(event.target.id){
             case "c":
-                updateDisplay("");
+                clearDisplay();
                 break;
             case "=":
                 parseDisplayValue();
-                updateDisplay("");
+                clearDisplay();
                 updateDisplay(operate(operator, firstNumber, secondNumber));
                 break;
             case "c":
@@ -41,11 +41,15 @@ function parseDisplayValue(){
             case '-':
             case '*':
             case '/':
-                operator = displayValue.charAt(i);
+                operator = displayVale.charAt(i);
                 firstNumber = Number(displayValue.slice(0, i));
                 secondNumber = Number(displayValue.slice(i+1));
         }
     }
+}
+
+function clearDisplay(){
+    updateDisplay("");
 }
 
 function updateDisplay(txt){
